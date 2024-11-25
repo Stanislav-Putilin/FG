@@ -2,16 +2,12 @@ using UnityEngine;
 
 public class PipeScript : MonoBehaviour
 {
-    private float speed = 1.0f;
-
-
+    private float speed = 1.5f;
     
     void Start()
     {
         
-    }
-
-    
+    }    
 
     void Update()
     {

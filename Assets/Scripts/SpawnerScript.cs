@@ -4,31 +4,68 @@ public class SpawnerScript : MonoBehaviour
 {
     [SerializeField]
     private GameObject pipePrefab;
-    private float pipeSpawnPeriod = 4.0f;
+
+	[SerializeField]
+	private GameObject cloudPrefab;
+
+	[SerializeField]
+	private GameObject[] insectPrefab;
+
+	private float pipeSpawnPeriod = 4.0f;
     private float pipeTimeout;
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+
+    private Vector3 randomPosition;
+    
+    
     void Start()
     {
         pipeTimeout = 0.0f;
-
 	}
-
-    // Update is called once per frame
+    
     void Update()
     {
 		pipeTimeout -= Time.deltaTime;
-        if(pipeTimeout <= 0.0f)
+        if (pipeTimeout <= 0.0f)
         {
             SpawnPipe();
             pipeTimeout = pipeSpawnPeriod;
-		}
 
+            int chance = Random.Range(0, 3);
+           
+            if (chance > 1)
+            {
+                SpawnInsect();
+            }
 
+            if (chance > 0)
+            {
+                SpawnCloud();
+
+			}
+        }
 	}
 
-    private void SpawnPipe()
+	private void SpawnCloud()
+	{
+		
+		GameObject insect = GameObject.Instantiate(cloudPrefab);
+
+		insect.transform.position = this.transform.position + Random.Range(3f, 5f) * Vector3.up;
+	}
+
+	private void SpawnInsect()
+	{
+        int randomIndex = Random.Range(0, insectPrefab.Length);
+		GameObject insect = GameObject.Instantiate(insectPrefab[randomIndex]);
+
+		insect.transform.position = randomPosition + Random.Range(-1.5f, 1.5f) * Vector3.up + Random.Range(-1.5f, 1.5f) * Vector3.right;
+	}
+
+	private void SpawnPipe()
     {
-        GameObject pipe = GameObject.Instantiate(pipePrefab);
-		pipe.transform.position = this.transform.position + Random.Range(-2f,2f) * Vector3.up;
+		GameObject pipe = GameObject.Instantiate(pipePrefab);
+        randomPosition = this.transform.position + Random.Range(-2f, 2f) * Vector3.up;
+
+		pipe.transform.position = randomPosition;       
 	}
 }

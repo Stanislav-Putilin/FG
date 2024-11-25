@@ -42,6 +42,43 @@ public class BirdScript : MonoBehaviour
 			{
 				score += 1;
 			}
+		}		
+	}
+
+	bool isOneTouch = true;
+
+	private void OnTriggerEnter2D(Collider2D collision)
+	{
+		if (collision.gameObject.CompareTag("LedyBug") && isOneTouch)
+		{
+			isOneTouch = false;
+			DestroyInsect(collision);
+			if (colliders[0])
+			{
+				score += 5;
+			}
+
 		}
+
+		if (collision.gameObject.CompareTag("Moscito") && isOneTouch)
+		{
+			DestroyInsect(collision);
+			if (colliders[0])
+			{
+				score += 3;
+			}
+		}
+	}
+
+	private void DestroyInsect(Collider2D collision)
+	{
+		Transform parentTransform = collision.gameObject.transform.parent;
+		GameObject.Destroy(collision.gameObject);
+
+		if (parentTransform != null)
+		{
+			GameObject.Destroy(parentTransform.gameObject);
+		}
+		isOneTouch = true;
 	}
 }
