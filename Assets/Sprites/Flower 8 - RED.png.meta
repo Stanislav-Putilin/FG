@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 76d903ef33c030e4782c604549960610
+guid: d14874dabc9c74143909d5a8d17ee60d
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -7260912976740119631
-    second: Unity_0
+      213: 2195940888439159976
+    second: Flower 8 - RED_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -51,7 +51,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 25
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -126,13 +126,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Unity_0
+      name: Flower 8 - RED_0
       rect:
         serializedVersion: 2
-        x: 16
+        x: 0
         y: 0
-        width: 224
-        height: 256
+        width: 15
+        height: 29
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -141,8 +141,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 1bb816c1e1e0c3b90800000000000000
-      internalID: -7260912976740119631
+      spriteID: 8acfb2b7a9c897e10800000000000000
+      internalID: 2195940888439159976
       vertices: []
       indices: 
       edges: []
@@ -161,7 +161,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Unity_0: -7260912976740119631
+      Flower 8 - RED_0: 2195940888439159976
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
