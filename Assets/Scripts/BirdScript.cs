@@ -28,15 +28,14 @@ public class BirdScript : MonoBehaviour
 	{
         if(collision.gameObject.CompareTag("Pipe"))
         {
-            Debug.Log("Game Over");
-        }
-
-		Debug.Log(collision.gameObject.name);
+			ModalScript.GameOver();
+		}		
 	}
+
 	private Collider2D[] colliders;
 	private void OnTriggerExit2D(Collider2D collision)
 	{
-		if (collision.gameObject.CompareTag("Pipe"))
+		if (collision.gameObject.CompareTag("PipeEmpty"))
 		{
 			if (!colliders.Any(c => c.IsTouching(collision)))
 			{
@@ -67,7 +66,7 @@ public class BirdScript : MonoBehaviour
 			{
 				score += 3;
 			}
-		}
+		}	
 	}
 
 	private void DestroyInsect(Collider2D collision)
